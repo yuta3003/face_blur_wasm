@@ -1,10 +1,9 @@
 services:
-  wasm-handson:
+  wasm:
     build: .
     ports:
       - 3030:3030
       - 8080:8080
     tty: true
-    working_dir: /src
     volumes:
       - ./src:/src

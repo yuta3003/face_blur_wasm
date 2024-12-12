@@ -24,3 +24,5 @@ RUN cargo install wasm-pack
 
 # cargo-make（タスクランナー）をインストール
 RUN cargo install --force cargo-make
+
+WORKDIR /src

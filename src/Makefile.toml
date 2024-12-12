@@ -1,0 +1,32 @@
+[tasks.build-wasm]
+script_runner = "@shell"
+script = '''
+cd face_blur_wasm/packages/wasm
+wasm-pack build --target web
+'''
+workspace = false
+
+[tasks.cp-wasm]
+script_runner = "@shell"
+script = '''
+cp -r face_blur_wasm/packages/wasm/pkg react/src
+'''
+workspace = false
+dependencies = ["build-wasm"]
+
+[tasks.npm-install]
+script_runner = "@shell"
+script = '''
+cd react
+npm install
+'''
+workspace = false
+
+[tasks.run-react]
+script_runner = "@shell"
+script = '''
+cd react
+npm run dev
+'''
+workspace = false
+dependencies = ["cp-wasm", "npm-install"]
