@@ -7,5 +7,4 @@ services:
     tty: true
     working_dir: /src
     volumes:
-      - ./work:/work
       - ./src:/src
