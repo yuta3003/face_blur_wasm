@@ -30,3 +30,12 @@ npm run dev
 '''
 workspace = false
 dependencies = ["cp-wasm", "npm-install"]
+
+[tasks.deploy]
+script_runner = "@shell"
+script = '''
+cd react
+npm run dev
+'''
+workspace = false
+dependencies = ["cp-wasm", "npm-install"]
