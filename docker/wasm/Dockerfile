@@ -13,16 +13,11 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ${RUST_HOME}/rus
     && ${RUST_HOME}/rustup.sh -y --default-toolchain stable
 ENV PATH $PATH:$CARGO_HOME/bin
 
-## toolchainを更新
-RUN rustup update
-
 ## WebAssemblyへのコンパイル機能を有効化
+RUN rustup update
 RUN rustup target add wasm32-unknown-unknown
 
-# wasm-pack（RustのコードをWebAssemblyに変換しnpmパッケージを構築するツール）をインストール
 RUN cargo install wasm-pack
-
-# cargo-make（タスクランナー）をインストール
 RUN cargo install --force cargo-make
 
 WORKDIR /src
