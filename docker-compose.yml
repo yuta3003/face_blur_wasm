@@ -4,8 +4,7 @@ services:
       context: .
       dockerfile: ./docker/wasm/Dockerfile
     ports:
+      - 80:80
       - 3030:3030
       - 8080:8080
     tty: true
-    volumes:
-      - ./src:/src
