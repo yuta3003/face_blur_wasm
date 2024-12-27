@@ -1,0 +1,97 @@
+/* App.module.css */
+
+/* 全体のレイアウト */
+.header {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  background-color: #ecf0f1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 画面全体の高さ */
+  padding: 20px;
+  background-color: #f7f9fc;
+}
+
+/* カメラとキャンバスのコンテナ */
+.webcamContainer {
+  position: relative;
+  width: 720px;
+  height: 360px;
+  max-width: 100%;
+  border: 2px solid #dcdde1;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ecf0f1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center; /* 垂直方向の中央揃え */
+  justify-content: center; /* 水平方向の中央揃え */
+}
+
+.webcamContainer canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.webcamContainer webcam {
+  display: block;
+}
+
+/* カメラ選択セクション */
+.cameraSelect, .mosaicSettings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+.cameraSelect span, .mosaicSettings span {
+  font-weight: bold;
+}
+
+select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #bdc3c7;
+  background-color: #ffffff;
+  color: #2c3e50;
+  transition: all 0.2s;
+}
+
+select:hover {
+  border-color: #3498db;
+  background-color: #ecf8ff;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 4px #3498db;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .webcamContainer {
+    width: 100%;
+    height: auto;
+  }
+
+  .cameraSelect, .mosaicSettings {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

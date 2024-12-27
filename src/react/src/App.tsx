@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
 import init, { exec_mosaic_face } from "./pkg/wasm";
+import styles from "./App.module.css";
 
 const videoConstraints = {
   width: 640,
@@ -95,10 +96,10 @@ export const App = () => {
 
   return (
     <>
-      <header>
-        <h1>お顔モザイクツール</h1>
+      <header className={styles.header}>
+        <h1>モザイク</h1>
       </header>
-      <div>
+      <div className={styles.cameraSelect}>
         <span>カメラを選択：</span>
         <select onChange={(e) => setDeviceId(e.target.value)}>
           {devices.map((device) => {
@@ -110,7 +111,7 @@ export const App = () => {
           })}
         </select>
       </div>
-      <div>
+      <div className={styles.mosaicSettings}>
         <span>モザイクの粗さ：</span>
         <select
           value={mosaicCoarseness}
@@ -126,7 +127,7 @@ export const App = () => {
         </select>
       </div>
 
-      <div style={{ position: "relative" }}>
+      <div className={styles.webcamContainer}>
         <Webcam
           audio={false}
           width={720}
@@ -139,17 +140,12 @@ export const App = () => {
           ref={canvasRef}
           width={image?.width}
           height={image?.height}
-          style={{
-            maxWidth: "100%",
-            maxHeight: "400px",
-            position: "absolute",
-            top: 0,
-            left: 0,
-          }}
+          className={styles.canvas}
         />
       </div>
     </>
   );
 };
+
 
 export default App;
