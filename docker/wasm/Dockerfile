@@ -31,7 +31,7 @@ FROM node:18-slim AS node_builder
 
 WORKDIR /app
 COPY ./src/react ./react
-COPY --from=rust_builder /src/face_blur_wasm/packages/wasm/pkg ./react/src
+COPY --from=rust_builder /src/face_blur_wasm/packages/wasm/pkg ./react/src/pkg
 
 WORKDIR /app/react
 RUN npm install
